@@ -1,6 +1,8 @@
 #-*- coding: UTF-8 -*-
 #如何进行反向迭代,和如何实现反向迭代
 from itertools import islice
+from random import randint
+from itertools import chain
 class Floatrang:
     def __init__(self,start,end,step=0.1):
         self.start=start
@@ -56,6 +58,40 @@ if __name__=='__main__':
 
     for x in t:
         print 11, x
+
+    #多个迭代对象
+    math=[randint(60,100) for _ in xrange(40)]
+    english=[randint(60,100) for _ in xrange(40)]
+    chinese=[randint(60,100) for _ in xrange(40)]
+    for i in xrange(len(math)):
+       print chinese[i]+english[i]+math[i]
+    #并行使用内置的函数zip函数，它能将迭代对象合并，每次迭代返回一个元组
+    t=zip([1,2,3,4],('a','b','c','d'))
+    print 12,t
+    #列表的长度不一致，则取较短的一个
+    t1 = zip([1, 2, 3, 4], ('a', 'b', 'c', 'd'),[6,7,8])
+    print 13, t1
+
+    total=[]
+    for c,m,e in zip(chinese,math,english):
+        total.append(c+m+e)
+
+    print 14,total
+
+    #串行使用标准库中的itertools.chain,它将多个迭代对象链接
+    e1=[randint(60, 100) for _ in xrange(40)]
+    e2=[randint(60,100) for _ in xrange(40)]
+    e3=[randint(60,100) for _ in xrange(40)]
+    e4=[randint(60, 100) for _ in xrange(40)]
+    cout=0
+    for s in chain(e1,e2,e3,e4):
+        if s>90:
+            cout+=1;
+    print 15,cout
+
+
+
+
 
 
 
