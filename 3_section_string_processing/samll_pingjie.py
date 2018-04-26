@@ -12,16 +12,16 @@ if __name__=='__main__':
     print 1,s
     #但是，浪费
     ss=''
-    ss.join(pl)
-    print 2,ss
+    t1=ss.join(pl)
+    print 2,t1
     ss1=['anc',123,54,'xys']
     ss2=''
 
-    ss2.join([str(x) for x in ss1])#使用列表解析
-    print 4,ss2
+    t2=ss2.join([str(x) for x in ss1])#使用列表解析
+    print 4,t2
     ss3=''
-    ss3.join((str(x) for x in ss1))#生成器
-    print 5,ss3
+    t3=ss3.join((str(x) for x in ss1))#生成器
+    print 5,t3
     #1.迭代列表，连续使用‘+’ 操作系统依次拼接每一个字符串
     #2,使用str.join()方法，更加快速的拼接列表中的所有字符串
 
